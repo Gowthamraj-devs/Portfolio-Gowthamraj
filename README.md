@@ -1,6 +1,6 @@
 # Gowthamraj G — Personal Developer Portfolio
 
-Personal developer portfolio website of **Gowthamraj G**, Web Developer & B.Sc Computer Science Student at Nandha Arts and Science College, Erode, Tamil Nadu.
+Personal developer portfolio website of **Gowthamraj G**, Web Developer & B.Sc Computer Science Student at Nandha Arts and Science College (Autonomous), Erode, Tamil Nadu.
 
 🌐 **Live Website**: [https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/](https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/)
 
@@ -15,68 +15,52 @@ Personal developer portfolio website of **Gowthamraj G**, Web Developer & B.Sc C
 
 ---
 
-## 📂 Project Structure Overview
+## 📂 Simplified Project Structure (Vanilla Stack)
 
 ```
 portfolio/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions deployment workflow
-├── public/
-│   ├── resume.pdf              # Real resume PDF location
-│   └── projects/               # Project screenshots directory
-├── src/
-│   ├── app/
-│   │   ├── globals.css         # Styling, themes, and CSS keyframe animations
-│   │   ├── layout.tsx          # Page metadata, fonts, SEO
-│   │   └── page.tsx            # Portfolio section layout
-│   ├── components/
-│   │   ├── backgrounds/        # Visual background components
-│   │   ├── sections/           # Portfolio sections (Hero, About, Skills, Projects, etc.)
-│   │   ├── Footer.tsx
-│   │   ├── GlowCard.tsx
-│   │   ├── LoadingScreen.tsx   # Fast skippable boot screen
-│   │   ├── Navbar.tsx          # Navigation, progress bar, mobile menu
-│   │   ├── Reveal.tsx          # Scroll reveal animation wrapper
-│   │   ├── TypeWriter.tsx      # Typewriter effect component
-│   │   └── VSCodeEditor.tsx    # Python code editor component
-│   └── lib/
-│       └── constants.ts        # Centralized personal info, skills, projects, and services
-├── next.config.ts              # Static export & GitHub Pages basePath configuration
-├── package.json
-└── tsconfig.json
+├── index.html              # Main HTML5 page (all sections, semantic tags, metadata)
+├── css/
+│   └── styles.css          # Theme variables, glassmorphism, keyframes, timeline, responsive layout
+├── js/
+│   ├── data.js             # Personal details, skills, projects, and education data
+│   ├── boot.js             # Terminal boot sequence script
+│   ├── typewriter.js       # Animated role typewriter script
+│   ├── editor.js           # Animated VS Code code typing script
+│   ├── navbar.js           # Scroll progress, active link observer, and mobile menu drawer
+│   ├── reveal.js           # Scroll reveal transitions script
+│   ├── projects.js         # Collapsible feature lists script
+│   ├── contact.js          # Contact form handler script
+│   ├── main.js             # Main entry script that renders section content from data.js
+│   └── backgrounds/        # Visual background scripts (Matrix rain, particles, floating code, mouse glow)
+├── assets/
+│   └── favicon.ico         # Favicon icon
+└── .github/
+    └── workflows/
+        └── deploy.yml      # GitHub Pages workflow (deploys index.html directly)
 ```
 
 ---
 
-## 🚀 Local Development
+## 💻 How to Edit and Run Your Portfolio in VS Code
 
-1. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+### 1. Opening and Previewing Locally
+1. Open the project folder in **VS Code**.
+2. To view your website, double-click `index.html` to open it in Google Chrome or Microsoft Edge (or right-click `index.html` and select **Open with Live Server** if you use the Live Server extension).
+3. **No build step, npm commands, or server compilation needed!**
 
-2. **Run local dev server**:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-3. **Lint check**:
-   ```bash
-   npm run lint
-   ```
-
-4. **Production Build & Static Export**:
-   ```bash
-   npm run build
-   ```
-   The static site HTML files will be generated in the `out/` directory.
+### 2. How to Edit Your Portfolio Content
+- **Personal Info, Skills, & Projects:**  
+  Open [`js/data.js`](js/data.js) and update text inside `PERSONAL`, `SKILLS`, `PROJECTS`, `EXPERIENCES`, `EDUCATION`, or `CERTIFICATES`.
+- **Website Styles, Colors, & Themes:**  
+  Open [`css/styles.css`](css/styles.css) to modify CSS variables (like `--color-primary`) or styling rules.
+- **Page Layout & Section Order:**  
+  Open [`index.html`](index.html) to modify HTML tags, headings, or section placement.
 
 ---
 
-## 🌐 Deployment to GitHub Pages
+## 🌐 GitHub Pages Deployment
 
 Deployment is automated via GitHub Actions:
-- Pushing changes to the `main` branch automatically triggers `.github/workflows/deploy.yml`.
-- The site is hosted directly at: `https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/`.
+- Simply push your changes to the `main` branch on GitHub.
+- The workflow at `.github/workflows/deploy.yml` publishes the root folder containing `index.html`, `css/`, and `js/` directly to GitHub Pages.
