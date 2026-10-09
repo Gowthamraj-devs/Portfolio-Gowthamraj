@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const element = document.getElementById("typewriter-text");
   if (!element) return;
 
-  const roles = [
-    "Web Developer",
+  const roles = (typeof PERSONAL !== "undefined" && PERSONAL.roles) ? PERSONAL.roles : [
+    "Backend Developer",
     "Python Developer",
-    "JavaScript Developer",
-    "Software Developer Trainee"
+    "Software Developer Trainee",
+    "Web Developer"
   ];
 
   let roleIndex = 0;

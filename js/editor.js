@@ -12,15 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     def __init__(self):
         self.name = "Gowthamraj G"
-        self.title = "Web Developer & B.Sc CS Student"
+        self.title = "Aspiring Software Developer | B.Sc CS Student"
         self.college = "Nandha Arts and Science College"
         self.graduation = "2027"
 
         self.skills = {
-            "frontend": ["HTML5", "CSS3", "JavaScript"],
-            "backend_and_core": ["Python", "Node.js", "C", "Java"],
+            "languages": ["C", "Java", "Python", "JavaScript"],
+            "web_and_backend": ["HTML5", "CSS3", "Django", "ASP.NET"],
             "database": ["SQL"],
-            "tools": ["Git", "GitHub", "VS Code"]
+            "tools": ["Git", "GitHub", "VS Code", "Visual Studio"]
         }
 
     def build_project(self, requirements):
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 dev = GowthamrajG()
-print("Building clean websites and software applications! 🚀")`;
+print("Building clean web applications and backend logic! 🚀")`;
 
   const lines = pythonCode.split("\n");
   

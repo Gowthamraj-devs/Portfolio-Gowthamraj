@@ -1,18 +1,18 @@
 /**
  * GOWTHAMRAJ G — PORTFOLIO DATA (js/data.js)
- * Beginner-friendly data file containing personal details, skills, and projects.
+ * Data file containing personal details, skills, projects, education, and experiences.
  */
 
 const PERSONAL = {
   name: "Gowthamraj G",
-  title: "Web Developer & B.Sc Computer Science Student",
+  title: "Aspiring Software Developer | B.Sc Computer Science Student",
   roles: [
-    "Web Developer",
+    "Backend Developer",
     "Python Developer",
-    "JavaScript Developer",
-    "Software Developer Trainee"
+    "Software Developer Trainee",
+    "Web Developer"
   ],
-  bio: "I am a B.Sc Computer Science student building clean, responsive websites and software applications using HTML, CSS, JavaScript, Node.js, Python, C, and Java.",
+  bio: "I am a B.Sc. Computer Science student at Nandha Arts and Science College (Autonomous), Erode, graduating in 2027. I am interested in software development and backend programming, with knowledge of C, Java, Python, JavaScript, HTML, CSS, SQL, and Django. I have completed a one-month .NET development internship and contributed to academic software projects.",
   email: "gowthamrajg2006@gmail.com",
   phone: "+91 8825728535",
   whatsapp: "https://wa.me/918825728535",
@@ -23,46 +23,69 @@ const PERSONAL = {
 };
 
 const SKILLS = [
-  // Frontend
-  { name: "HTML5", category: "frontend" },
-  { name: "CSS3", category: "frontend" },
-  { name: "JavaScript (ES6+)", category: "frontend" },
-
-  // Backend & Core Languages
-  { name: "Python", category: "backend" },
-  { name: "Node.js", category: "backend" },
+  // Programming Languages
   { name: "C", category: "backend" },
   { name: "Java", category: "backend" },
+  { name: "Python (Basic)", category: "backend" },
+  { name: "JavaScript", category: "frontend" },
+
+  // Web Technologies
+  { name: "HTML5", category: "frontend" },
+  { name: "CSS3", category: "frontend" },
+
+  // Backend and Frameworks
+  { name: "Django", category: "backend" },
+  { name: "C#", category: "backend" },
+  { name: "ASP.NET / .NET (Basics)", category: "backend" },
 
   // Database
   { name: "SQL", category: "database" },
 
-  // Tools & Workflow
+  // Tools
   { name: "Git", category: "tool" },
   { name: "GitHub", category: "tool" },
-  { name: "VS Code", category: "tool" }
+  { name: "Visual Studio Code", category: "tool" },
+  { name: "Visual Studio", category: "tool" }
 ];
 
 const PROJECTS = [
   {
     title: "OD Application Management System",
-    description: "A full-stack web application designed for managing student On-Duty requests with automated multi-level approval workflows and notification systems.",
+    description: "A web application designed for managing student On-Duty requests with automated multi-level approval workflows and notification systems.",
     status: "completed",
-    year: "2025",
+    year: "July–September 2026",
     featured: true,
     problem: "Managing student On-Duty applications manually caused paperwork delays and lacked transparent approval tracking.",
-    solution: "Built an automated web platform enabling multi-tier approval flows across staff and HOD levels with status notifications.",
-    role: "Developer (Student Application Portal)",
-    impact: "Streamlined On-Duty application processing and eliminated paper-based request delays for college departments.",
-    // Accurate project technologies as specified
-    stack: ["Frontend: Vercel", ".NET Backend: Render", "Neon PostgreSQL", "Google Cloud Email"],
+    solution: "Built an automated web platform supporting individual and group OD requests, proof uploads, email notifications, and printable reports across student, staff, and HOD levels.",
+    role: "Backend Developer & Team Contributor",
+    impact: "Contributed to backend API development for the college On-Duty (OD) application system and approval workflow.",
+    stack: ["ASP.NET Core Web API", "JavaScript"],
     features: [
-      "Student OD Application Workflow",
-      "Staff Review & Approval Portal",
-      "Department Approval Workflow",
-      "Email Notification Messaging",
-      "Certificate Upload & Verification",
-      "Responsive Administrative Dashboard"
+      "Contributed to backend API development for the college On-Duty (OD) application system.",
+      "Worked on backend functionality supporting the OD application and approval workflow for students, staff, and HODs.",
+      "Individual & Group OD Requests",
+      "Proof Uploads & Email Notifications",
+      "Printable Reports Generation"
+    ],
+    live: "https://od-application-management-system.vercel.app/",
+    liveLabel: "Live App Demo",
+    github: "https://github.com/Venkatraman06/OD-Application-Management-System/"
+  },
+  {
+    title: "College Management System",
+    description: "A College Management System developed using Django and SQL to manage academic information.",
+    status: "ongoing",
+    year: "2024 – Present",
+    featured: false,
+    problem: "Academic departments need centralized software to manage student profiles and academic records efficiently.",
+    solution: "Designed and developed a college management web application using Python (Django) with SQL-backed data storage.",
+    role: "Developer",
+    impact: "Implemented student and academic management modules with SQL-backed data storage.",
+    stack: ["Python", "Django", "SQL", "HTML5", "CSS3"],
+    features: [
+      "Designed and developed a college management web application using Python (Django).",
+      "Implemented student and academic management modules with SQL-backed data storage.",
+      "Implemented backend functionality using Django with an SQL database."
     ],
     repoAvailableOnRequest: true
   },
@@ -76,7 +99,7 @@ const PROJECTS = [
     solution: "Designed a clean interactive website featuring filterable food items, map location, and direct WhatsApp customer connection.",
     role: "Frontend Developer",
     impact: "Demonstrated interactive digital menu access and direct instant messaging contact for restaurant customers.",
-    stack: ["JavaScript", "HTML5", "CSS3", "Responsive UI", "CSS Animations"],
+    stack: ["JavaScript", "HTML5", "CSS3"],
     features: [
       "Mobile-Optimized Interface",
       "Interactive Food Category Showcase",
@@ -88,27 +111,6 @@ const PROJECTS = [
     github: "https://github.com/Gowthamraj-devs/Project-One",
     live: "https://gowthamraj-devs.github.io/Project-One/",
     liveLabel: "Demo Website"
-  },
-  {
-    title: "College Management System",
-    description: "A web-based academic management project for organizing student profiles, attendance tracking, and department metrics.",
-    status: "ongoing",
-    year: "2024 – Present",
-    featured: false,
-    problem: "Academic departments need centralized software to manage student data and attendance records efficiently.",
-    solution: "Developing a management portal using Python and JavaScript to handle student information and administrative reports.",
-    role: "Developer",
-    impact: "Organizes administrative data handling and student record reporting.",
-    stack: ["Python", "JavaScript", "HTML5", "CSS3", "SQL"],
-    features: [
-      "Student & Faculty Directory",
-      "Attendance Tracking System",
-      "Department Record Management",
-      "User Authentication",
-      "Responsive Dashboard",
-      "Report Generation"
-    ],
-    repoAvailableOnRequest: true
   }
 ];
 
@@ -161,35 +163,35 @@ const SERVICES = [
 
 const EXPERIENCES = [
   {
-    role: "Software Development Intern",
+    role: ".NET Full Stack Development Intern",
     company: "Nallas Technologies India Pvt. Ltd.",
     location: "Erode, Tamil Nadu",
     period: "Sep 2025",
     duration: "1 Month",
     points: [
-      "Assisted in web development tasks using HTML, CSS, JavaScript, and database concepts in an industry environment.",
-      "Collaborated on backend data structures and user interface component updates.",
-      "Participated in software testing, code reviews, and project workflow routines.",
-      "Gained practical exposure to commercial software development routines and database integration."
+      "Worked with C#, ASP.NET, HTML, CSS, JavaScript and SQL in an industry environment.",
+      "Assisted in web application development tasks and learned how full-stack applications are structured.",
+      "Followed professional software development workflows and completed assigned tasks within deadlines.",
+      "Learned how frontend and backend components are integrated in a professional setting."
     ]
   }
 ];
 
 const EDUCATION = [
   {
-    degree: "B.Sc Computer Science",
+    degree: "B.Sc Computer Science (Third Year)",
     institution: "Nandha Arts and Science College (Autonomous)",
     location: "Erode, Tamil Nadu, India",
-    period: "2024 – 2027",
+    period: "06/2024 – 06/2027",
     status: "Graduation: 2027",
     aggregate: "69.5% (First Four Semesters)",
-    details: "Focusing on Web Development, Python, JavaScript, C, Java, and Database Management."
+    details: "Focusing on Software Development, Backend Programming, C, Java, Python, JavaScript, HTML, CSS, SQL, and Django."
   }
 ];
 
 const CERTIFICATES = [
   {
-    title: "Software Development Internship Certificate",
+    title: ".NET Full Stack Development Internship Certificate",
     issuer: "Nallas Technologies India Pvt. Ltd.",
     year: "2025"
   }
