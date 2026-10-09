@@ -16,11 +16,11 @@ interface FloatingItem {
 }
 
 const COLORS = [
-  "rgba(59, 130, 246, 0.12)",  // blue
-  "rgba(139, 92, 246, 0.10)",  // purple
-  "rgba(6, 182, 212, 0.10)",   // cyan
-  "rgba(34, 197, 94, 0.08)",   // green
-  "rgba(251, 191, 36, 0.08)",  // amber
+  "rgba(59, 130, 246, 0.12)",
+  "rgba(139, 92, 246, 0.10)",
+  "rgba(6, 182, 212, 0.10)",
+  "rgba(34, 197, 94, 0.08)",
+  "rgba(251, 191, 36, 0.08)",
 ];
 
 function generateItems(count: number): FloatingItem[] {
@@ -28,11 +28,11 @@ function generateItems(count: number): FloatingItem[] {
     id: i,
     text: FLOATING_SNIPPETS[Math.floor(Math.random() * FLOATING_SNIPPETS.length)],
     x: Math.random() * 100,
-    y: Math.random() * 100 + 100, // Start below viewport
-    size: Math.random() * 4 + 10,  // 10-14px
-    duration: Math.random() * 30 + 40, // 40-70s
+    y: Math.random() * 100 + 100,
+    size: Math.random() * 4 + 10,
+    duration: Math.random() * 30 + 40,
     delay: Math.random() * 20,
-    opacity: Math.random() * 0.08 + 0.04, // 0.04-0.12
+    opacity: Math.random() * 0.08 + 0.04,
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
   }));
 }
@@ -41,7 +41,13 @@ export default function FloatingCode() {
   const [items, setItems] = useState<FloatingItem[]>([]);
 
   useEffect(() => {
-    setItems(generateItems(35));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const frameId = requestAnimationFrame(() => {
+      setItems(generateItems(25));
+    });
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   if (items.length === 0) return null;

@@ -2,23 +2,32 @@
 // PERSONAL DATA & CONSTANTS
 // ============================================================
 
+export const BASE_PATH = "/Portfolio-Gowthamraj";
+
+export const getAssetPath = (path: string): string => {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${BASE_PATH}${cleanPath}`;
+};
+
 export const PERSONAL = {
   name: "Gowthamraj G",
   title: "Web Developer & B.Sc Computer Science Student",
+  headlineRole: "Web & Software Developer",
   roles: [
     "Web Developer",
-    "B.Sc CS Student",
-    "React & Django Developer",
-    "Freelance Web Developer",
-  ],
-  bio: `I build modern, responsive websites and web applications with clean UI and practical functionality.`,
+    "Python Developer",
+    "JavaScript Developer",
+    "Software Developer Trainee",
+  ] as const,
+  bio: "I build clean, responsive websites and software applications using HTML, CSS, JavaScript, Node.js, Python, C, and Java.",
   email: "gowthamrajg2006@gmail.com",
   phone: "+91 8825728535",
   whatsapp: "https://wa.me/918825728535",
   location: "Erode, Tamil Nadu, India",
   github: "https://github.com/Gowthamraj-devs",
   linkedin: "https://linkedin.com/in/gowthamraj-g-aa9166344",
-  resumeUrl: "/resume.pdf",
+  // Centralized resume URL with basePath compatibility
+  resumeUrl: `${BASE_PATH}/resume.pdf`,
 } as const;
 
 // ============================================================
@@ -29,15 +38,16 @@ export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 // ============================================================
-// SKILLS
+// SKILLS — SIMPLIFIED TO USER'S EXACT STACK
 // ============================================================
 
 export interface SkillItem {
@@ -46,36 +56,31 @@ export interface SkillItem {
 }
 
 export const SKILL_CATEGORIES = [
-  { key: "frontend" as const, label: "Frontend", icon: "Code2" },
-  { key: "backend" as const, label: "Backend", icon: "Layers" },
+  { key: "frontend" as const, label: "Frontend Development", icon: "Code2" },
+  { key: "backend" as const, label: "Backend & Core Languages", icon: "Layers" },
   { key: "database" as const, label: "Database", icon: "Database" },
-  { key: "tool" as const, label: "Tools", icon: "Wrench" },
+  { key: "tool" as const, label: "Tools & Workflow", icon: "Wrench" },
 ];
 
 export const SKILLS: SkillItem[] = [
   // Frontend
-  { name: "HTML", category: "frontend" },
-  { name: "CSS", category: "frontend" },
-  { name: "JavaScript", category: "frontend" },
-  { name: "React.js", category: "frontend" },
+  { name: "HTML5", category: "frontend" },
+  { name: "CSS3", category: "frontend" },
+  { name: "JavaScript (ES6+)", category: "frontend" },
 
-  // Backend
+  // Backend & Core Languages
   { name: "Python", category: "backend" },
-  { name: "Django", category: "backend" },
-  { name: "C#", category: "backend" },
-  { name: "ASP.NET / .NET", category: "backend" },
+  { name: "Node.js", category: "backend" },
+  { name: "C", category: "backend" },
+  { name: "Java", category: "backend" },
 
   // Database
   { name: "SQL", category: "database" },
-  { name: "PostgreSQL", category: "database" },
-  { name: "MongoDB basics", category: "database" },
 
-  // Tools
+  // Tools & Workflow
   { name: "Git", category: "tool" },
   { name: "GitHub", category: "tool" },
-  { name: "VS Code / Visual Studio", category: "tool" },
-  { name: "Vercel", category: "tool" },
-  { name: "Render", category: "tool" },
+  { name: "VS Code", category: "tool" },
 ];
 
 // ============================================================
@@ -93,49 +98,49 @@ export const SERVICES: Service[] = [
   {
     title: "Restaurant Websites",
     description:
-      "Modern websites with menu, gallery, location, WhatsApp and contact options.",
+      "Modern digital menu and restaurant websites with photo galleries, Google Maps location, and WhatsApp contact options.",
     icon: "Utensils",
     features: [
       "Interactive Food Menu",
       "Food Photo Gallery",
-      "Google Maps Location",
-      "WhatsApp Direct Contact",
+      "Google Maps Integration",
+      "Direct WhatsApp Contact",
     ],
   },
   {
     title: "Business Websites",
     description:
-      "Professional websites for small businesses and local companies.",
+      "Professional websites for local businesses, services, and companies tailored for strong brand presence.",
     icon: "Briefcase",
     features: [
       "Clean UI & Brand Identity",
-      "Services & Offerings Showcase",
-      "Customer Inquiry Contact Forms",
-      "SEO-Friendly Structure",
+      "Services Showcase",
+      "Customer Contact Form",
+      "Mobile-Friendly Structure",
     ],
   },
   {
-    title: "Responsive Website Design",
+    title: "Responsive Web Design",
     description:
-      "Mobile-friendly websites that work across phones, tablets and desktops.",
+      "Mobile-first websites designed to run smoothly on smartphones, tablets, and desktop computers.",
     icon: "Smartphone",
     features: [
       "Mobile-First Layouts",
       "Cross-Browser Compatibility",
-      "Fast Touch Interaction",
-      "Optimized Layout Spacing",
+      "Fast Touch Interactions",
+      "Optimized Spacing & Typography",
     ],
   },
   {
     title: "Website Improvements",
     description:
-      "UI redesign, responsiveness, performance and modern animations.",
+      "UI redesign, performance optimization, mobile fixes, and modern subtle animations for existing sites.",
     icon: "Zap",
     features: [
       "Modern Visual Redesign",
       "Mobile Responsiveness Fixes",
-      "Performance Speed Optimization",
-      "Smooth CSS & Scroll Animations",
+      "Speed Optimization",
+      "Smooth CSS & UI Polish",
     ],
   },
 ];
@@ -149,66 +154,97 @@ export interface Project {
   description: string;
   status: "ongoing" | "completed";
   year: string;
+  problem: string;
+  solution: string;
+  role: string;
+  impact: string;
   stack: string[];
   features: string[];
   github?: string;
+  repoAvailableOnRequest?: boolean;
   live?: string;
   liveLabel?: string;
+  image?: string;
+  featured?: boolean;
 }
 
 export const PROJECTS: Project[] = [
   {
     title: "OD Application Management System",
     description:
-      "A full-stack web application designed for managing student On-Duty requests with automated multi-level approval workflows and notification systems.",
+      "A web application for automating student On-Duty request submissions, faculty review, and status tracking.",
     status: "completed",
     year: "2025",
-    stack: ["HTML", "CSS", "JavaScript", ".NET", "C#", "SQL"],
+    featured: true,
+    problem:
+      "Managing student On-Duty applications manually caused paperwork delays and lacked transparent approval tracking.",
+    solution:
+      "Built a web platform enabling structured approval workflows for staff and department heads with status notifications.",
+    role: "Developer (Student Application Portal)",
+    impact:
+      "Streamlined On-Duty application processing and eliminated paper-based request delays.",
+    stack: ["JavaScript", "HTML5", "CSS3", "SQL", "Node.js"],
     features: [
-      "Student OD application workflow",
-      "Staff approval",
-      "HOD approval",
-      "Email notifications",
-      "Certificate handling",
-      "Responsive UI",
+      "Student OD Application Workflow",
+      "Staff Review & Approval Portal",
+      "Department Approval Workflow",
+      "Notification Messaging",
+      "Certificate Upload & Verification",
+      "Responsive Administrative Dashboard",
     ],
-    github: "https://github.com/Gowthamraj-devs",
+    repoAvailableOnRequest: true,
   },
   {
     title: "Restaurant Website Demo",
     description:
-      "A modern responsive restaurant website concept created to demonstrate professional website solutions for restaurants.",
+      "A modern responsive website concept built to showcase digital menu, location, and WhatsApp contact solutions for food businesses.",
     status: "completed",
     year: "2025",
-    stack: ["HTML", "CSS", "JavaScript", "Responsive UI", "Animations"],
+    featured: false,
+    problem:
+      "Small dining establishments struggle to present interactive menus and direct ordering contacts effectively on mobile devices.",
+    solution:
+      "Designed a clean interactive website featuring filterable food items, map location, and direct WhatsApp customer connection.",
+    role: "Frontend Developer",
+    impact:
+      "Demonstrated interactive digital menu access and direct instant messaging contact for restaurant customers.",
+    stack: ["JavaScript", "HTML5", "CSS3", "Responsive UI", "CSS Animations"],
     features: [
-      "Responsive design",
-      "Menu section",
-      "Food gallery",
-      "Restaurant information",
-      "Google Maps",
-      "WhatsApp contact",
-      "Modern animations",
+      "Mobile-Optimized Interface",
+      "Interactive Food Category Showcase",
+      "Photo Gallery",
+      "Google Maps Location Embed",
+      "WhatsApp Direct Contact Link",
+      "Smooth Scroll Navigation",
     ],
+    github: "https://github.com/Gowthamraj-devs/Project-One",
     live: "https://gowthamraj-devs.github.io/Project-One/",
     liveLabel: "Demo Website",
   },
   {
     title: "College Management System",
     description:
-      "A full-stack college management application for managing academic operations, built with Python (Django), Django ORM, and React.js.",
+      "A web-based academic management project for organizing student profiles, attendance tracking, and department metrics.",
     status: "ongoing",
     year: "2024 – Present",
-    stack: ["Python", "Django", "Django REST", "React", "PostgreSQL"],
+    featured: false,
+    problem:
+      "Academic departments need centralized software to manage student data and attendance records efficiently.",
+    solution:
+      "Developing a management portal using Python and JavaScript to handle student information and administrative reports.",
+    role: "Developer",
+    impact:
+      "Organizes administrative data handling and student record reporting.",
+    stack: ["Python", "JavaScript", "HTML5", "CSS3", "SQL"],
     features: [
-      "Student & Faculty Management",
-      "Attendance Tracking",
-      "Fees Management",
-      "Authentication & Authorization",
+      "Student & Faculty Directory",
+      "Attendance Tracking System",
+      "Department Record Management",
+      "User Authentication",
       "Responsive Dashboard",
-      "RESTful APIs",
+      "Report Generation",
     ],
-    github: "https://github.com/Gowthamraj-devs",
+    repoAvailableOnRequest: true,
   },
 ];
 
@@ -227,16 +263,16 @@ export interface Experience {
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: ".NET Full Stack Development Intern",
+    role: "Software Development Intern",
     company: "Nallas Technologies India Pvt. Ltd.",
     location: "Erode, Tamil Nadu",
     period: "Sep 2025",
     duration: "1 Month",
     points: [
-      "Worked with C#, ASP.NET, HTML, CSS, JavaScript, and SQL in a real industry environment following Agile development practices.",
-      "Assisted in web application development including API integration tasks and gained exposure to full-stack development concepts.",
-      "Participated in unit testing of modules and gained experience with deployment workflows and project delivery within deadlines.",
-      "Developed understanding of backend and frontend integration in a professional setting.",
+      "Assisted in web development tasks using HTML, CSS, JavaScript, and database concepts in an industry environment.",
+      "Collaborated on backend data structures and user interface component updates.",
+      "Participated in software testing, code reviews, and project workflow routines.",
+      "Gained practical exposure to software development routines and team collaboration.",
     ],
   },
 ];
@@ -264,7 +300,7 @@ export const EDUCATION: Education[] = [
     status: "Graduation: 2027",
     aggregate: "69.5% (First Four Semesters)",
     details:
-      "Focusing on Web Development, Python, Django, React, and building practical website solutions for local businesses.",
+      "Focusing on Web Development, Python, JavaScript, C, Java, and Database Management.",
   },
 ];
 
@@ -280,40 +316,41 @@ export interface Certificate {
 
 export const CERTIFICATES: Certificate[] = [
   {
-    title: ".NET Full Stack Development Internship Certificate",
+    title: "Software Development Internship Certificate",
     issuer: "Nallas Technologies India Pvt. Ltd.",
     year: "2025",
   },
 ];
 
 // ============================================================
-// VS CODE EDITOR CODE
+// VS CODE EDITOR CODE — FEATURING USER'S EXACT TECH STACK
 // ============================================================
 
 export const VSCODE_CODE = `class GowthamrajG:
 
     def __init__(self):
         self.name = "Gowthamraj G"
-        self.role = "Web Developer & B.Sc CS Student"
+        self.title = "Web Developer & B.Sc CS Student"
         self.college = "Nandha Arts and Science College"
         self.graduation = "2027"
 
         self.skills = {
-            "frontend": ["HTML", "CSS", "JavaScript", "React.js"],
-            "backend": ["Python", "Django", "C#", "ASP.NET"],
-            "database": ["SQL", "PostgreSQL", "MongoDB"],
-            "tools": ["Git", "GitHub", "VS Code", "Vercel"]
+            "frontend": ["HTML5", "CSS3", "JavaScript"],
+            "backend_and_core": ["Python", "Node.js", "C", "Java"],
+            "database": ["SQL"],
+            "tools": ["Git", "GitHub", "VS Code"]
         }
 
-    def build_website(self, client):
+    def build_project(self, requirements):
         return {
-            "design": "Clean & Responsive",
-            "performance": "Fast & Optimized",
-            "support": "WhatsApp & Email Contact"
+            "status": "Ready",
+            "design": "Responsive & Clean UI",
+            "code": "Readable & Structured",
+            "performance": "Fast & Reliable"
         }
 
 dev = GowthamrajG()
-print("Building modern web solutions! 🚀")`;
+print("Building clean websites and software applications! 🚀")`;
 
 // ============================================================
 // FLOATING CODE SNIPPETS (for background animation)
@@ -322,17 +359,17 @@ print("Building modern web solutions! 🚀")`;
 export const FLOATING_SNIPPETS = [
   "const dev = 'Gowthamraj G';",
   "function WebDev()",
-  "import React from 'react';",
-  "python manage.py runserver",
-  "class RestaurantWebsite:",
-  "display: grid;",
+  "console.log('Hello World');",
+  "python script.py",
+  "int main() { return 0; }",
+  "public class Main {}",
+  "display: flex;",
   "<Navbar />",
   "git push origin main",
-  "django-admin startproject",
   "SELECT * FROM projects;",
   "{ title: 'OD Application' }",
   "gradient-text",
-  "glassmorphism",
+  "node server.js",
   "mailto:gowthamrajg2006@gmail.com",
 ];
 
@@ -342,7 +379,7 @@ export const FLOATING_SNIPPETS = [
 
 export const ABOUT_STATS = [
   { label: "Graduation", value: "2027" },
+  { label: "Degree", value: "B.Sc CS" },
   { label: "College", value: "NASC" },
-  { label: "Projects", value: "3+" },
-  { label: "Experience", value: "Internship" },
+  { label: "Focus", value: "Web & Software" },
 ];

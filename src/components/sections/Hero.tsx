@@ -5,7 +5,7 @@ import { Mail, ArrowDown, FolderGit2 } from "lucide-react";
 import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsappIcon } from "@/components/icons";
 import TypeWriter from "@/components/TypeWriter";
 import VSCodeEditor from "@/components/VSCodeEditor";
-import SectionReveal from "@/components/SectionReveal";
+import Reveal from "@/components/Reveal";
 import { PERSONAL } from "@/lib/constants";
 
 export default function Hero() {
@@ -23,48 +23,55 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side — Information & Action */}
           <div className="order-2 lg:order-1">
-            <SectionReveal delay={0.1}>
+            {/* Tagline */}
+            <Reveal delay={0.05} duration={0.4}>
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-[1px] w-8 bg-primary" />
-                <span className="text-primary text-sm font-mono tracking-wider uppercase font-medium">
+                <span className="text-primary text-xs sm:text-sm font-mono tracking-wider uppercase font-medium">
                   Welcome to my portfolio
                 </span>
               </div>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.2}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight">
+            {/* Headline Name & Title */}
+            <Reveal delay={0.12} duration={0.5}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-2 tracking-tight">
                 <span className="gradient-text">{PERSONAL.name}</span>
               </h1>
-              <h2 className="text-xl sm:text-2xl font-semibold text-text-primary mb-4">
+              <h2 className="text-xl sm:text-2xl font-semibold text-text-primary mb-3">
                 {PERSONAL.title}
               </h2>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.3}>
-              <div className="text-lg font-medium text-accent mb-6 h-8 flex items-center">
+            {/* Rotating Role Line */}
+            <Reveal delay={0.2} duration={0.5}>
+              <div className="text-base sm:text-lg font-medium text-accent mb-5 min-h-[32px] flex items-center">
                 <span className="mr-2 text-text-muted font-mono text-sm">Focus:</span>
                 <TypeWriter
                   words={PERSONAL.roles}
-                  typingSpeed={70}
-                  deletingSpeed={35}
+                  typingSpeed={40}
+                  deletingSpeed={30}
                   pauseDuration={2000}
                 />
               </div>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.4}>
+            {/* Description */}
+            <Reveal delay={0.28} duration={0.5}>
               <p className="text-text-secondary leading-relaxed mb-8 max-w-xl text-base sm:text-lg">
                 {PERSONAL.bio}
               </p>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.5}>
+            {/* Action CTA Buttons */}
+            <Reveal delay={0.36} duration={0.5}>
               <div className="flex flex-wrap items-center gap-4 mb-8">
                 {/* View My Projects */}
-                <button
+                <motion.button
                   onClick={scrollToProjects}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white font-medium text-sm transition-all duration-300 hover:scale-105"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white font-medium text-sm transition-all duration-200 cursor-pointer"
                   style={{
                     background: "linear-gradient(135deg, var(--color-primary), var(--color-secondary))",
                     boxShadow: "0 0 20px rgba(59, 130, 246, 0.35)",
@@ -72,48 +79,52 @@ export default function Hero() {
                 >
                   <FolderGit2 size={18} />
                   View My Projects
-                </button>
+                </motion.button>
 
                 {/* Contact Me */}
-                <button
+                <motion.button
                   onClick={scrollToContact}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 border border-primary/40 text-primary hover:bg-primary/10"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-200 border border-primary/40 text-primary hover:bg-primary/10 cursor-pointer"
                 >
                   <Mail size={18} />
                   Contact Me
-                </button>
+                </motion.button>
 
                 {/* Download Resume */}
-                <a
+                <motion.a
                   href={PERSONAL.resumeUrl}
-                  download
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 border border-border-subtle text-text-secondary hover:text-text-primary hover:border-border-glow"
+                  download="Gowthamraj_G_Resume.pdf"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-all duration-200 border border-border-subtle text-text-secondary hover:text-text-primary hover:border-border-glow"
                 >
                   <ArrowDown size={18} />
                   Download Resume
-                </a>
+                </motion.a>
               </div>
-            </SectionReveal>
+            </Reveal>
 
-            {/* Social Icons */}
-            <SectionReveal delay={0.6}>
+            {/* Social Connect Icons */}
+            <Reveal delay={0.44} duration={0.5}>
               <div className="flex items-center gap-4">
-                <span className="text-text-muted text-sm font-mono mr-1">connect:</span>
+                <span className="text-text-muted text-xs font-mono uppercase tracking-wider">connect:</span>
                 {[
-                  { icon: Github, href: PERSONAL.github, label: "GitHub" },
-                  { icon: Linkedin, href: PERSONAL.linkedin, label: "LinkedIn" },
-                  { icon: Mail, href: `mailto:${PERSONAL.email}`, label: "Email" },
-                  { icon: WhatsappIcon, href: PERSONAL.whatsapp, label: "WhatsApp" },
+                  { icon: Github, href: PERSONAL.github, label: "GitHub Profile" },
+                  { icon: Linkedin, href: PERSONAL.linkedin, label: "LinkedIn Profile" },
+                  { icon: Mail, href: `mailto:${PERSONAL.email}`, label: "Direct Email" },
+                  { icon: WhatsappIcon, href: PERSONAL.whatsapp, label: "WhatsApp Direct Chat" },
                 ].map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-all duration-300"
+                    className="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-all duration-200"
                     whileHover={{
-                      scale: 1.15,
-                      boxShadow: "0 0 18px rgba(59, 130, 246, 0.3)",
+                      scale: 1.1,
+                      boxShadow: "0 0 16px rgba(59, 130, 246, 0.3)",
                     }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -122,15 +133,15 @@ export default function Hero() {
                   </motion.a>
                 ))}
               </div>
-            </SectionReveal>
+            </Reveal>
           </div>
 
           {/* Right Side — VS Code Editor */}
-          <SectionReveal delay={0.3} direction="right" className="order-1 lg:order-2">
+          <Reveal delay={0.2} direction="right" duration={0.6} className="order-1 lg:order-2">
             <div className="relative">
-              {/* Ambient glow behind editor */}
+              {/* Ambient glow behind code editor */}
               <div
-                className="absolute -inset-8 rounded-3xl blur-3xl opacity-20"
+                className="absolute -inset-6 rounded-3xl blur-3xl opacity-20 pointer-events-none"
                 style={{
                   background: "radial-gradient(circle at 50% 50%, var(--color-primary), var(--color-secondary), transparent 70%)",
                 }}
@@ -139,17 +150,17 @@ export default function Hero() {
                 <VSCodeEditor />
               </div>
             </div>
-          </SectionReveal>
+          </Reveal>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block"
-        animate={{ y: [0, 8, 0] }}
+        animate={{ y: [0, 6, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ArrowDown className="text-text-muted opacity-60" size={20} />
+        <ArrowDown className="text-text-muted opacity-50" size={18} />
       </motion.div>
     </section>
   );

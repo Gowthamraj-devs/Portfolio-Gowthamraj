@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
-import Services from "@/components/sections/Services";
 import Projects from "@/components/sections/Projects";
+import Services from "@/components/sections/Services";
 import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Certificates from "@/components/sections/Certificates";
@@ -47,13 +47,13 @@ export default function Home() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Main Content */}
+      {/* Main Content — Section Order: Home -> About -> Skills -> Projects -> Services -> Experience -> Education -> Certificates -> Contact */}
       <main className="relative" style={{ zIndex: 10 }}>
         <Hero />
         <About />
         <Skills />
-        <Services />
         <Projects />
+        <Services />
         <Experience />
         <Education />
         <Certificates />

@@ -17,27 +17,34 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gowthamraj G | Web Developer",
+  metadataBase: new URL("https://gowthamraj-devs.github.io/Portfolio-Gowthamraj"),
+  title: "Gowthamraj G | Web Developer & B.Sc Computer Science Student",
   description:
-    "Gowthamraj G is a B.Sc Computer Science student and web developer building modern responsive websites and web applications.",
+    "Portfolio of Gowthamraj G — Web Developer & B.Sc Computer Science Student skilled in HTML, CSS, JavaScript, Node.js, Python, C, and Java.",
   keywords: [
     "Gowthamraj G",
     "Gowthamraj",
     "Web Developer",
-    "Freelance Web Developer",
-    "Computer Science Student",
-    "Django Developer",
+    "Software Developer",
     "Python Developer",
-    "React Developer",
-    "Portfolio",
+    "JavaScript Developer",
+    "Node.js",
+    "C Developer",
+    "Java Developer",
+    "Freelance Web Developer",
     "Nandha Arts and Science College",
     "Erode Web Developer",
+    "OD Application Management System",
   ],
   authors: [{ name: "Gowthamraj G" }],
+  alternates: {
+    canonical: "https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/",
+  },
   openGraph: {
-    title: "Gowthamraj G | Web Developer",
+    title: "Gowthamraj G | Web Developer & B.Sc Computer Science Student",
     description:
-      "Gowthamraj G is a B.Sc Computer Science student and web developer building modern responsive websites and web applications.",
+      "Gowthamraj G builds responsive websites and software applications with HTML, CSS, JavaScript, Node.js, Python, C, and Java.",
+    url: "https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/",
     type: "website",
     locale: "en_US",
     siteName: "Gowthamraj G Portfolio",
@@ -46,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gowthamraj G | Web Developer",
     description:
-      "Gowthamraj G is a B.Sc Computer Science student and web developer building modern responsive websites and web applications.",
+      "Gowthamraj G builds responsive websites and software applications with HTML, CSS, JavaScript, Node.js, Python, C, and Java.",
   },
   robots: {
     index: true,

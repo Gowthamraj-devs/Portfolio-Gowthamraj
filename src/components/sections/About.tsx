@@ -1,9 +1,8 @@
 "use client";
 
 import { Code2, GraduationCap, Briefcase, Rocket } from "lucide-react";
-import SectionReveal from "@/components/SectionReveal";
+import Reveal from "@/components/Reveal";
 import GlowCard from "@/components/GlowCard";
-import { StaggerContainer, staggerChild } from "@/components/SectionReveal";
 import { motion } from "framer-motion";
 import { ABOUT_STATS } from "@/lib/constants";
 
@@ -13,29 +12,29 @@ export default function About() {
   return (
     <section id="about" className="relative">
       <div className="section-container">
-        <SectionReveal>
-          <p className="text-primary font-mono text-sm mb-2 tracking-wider">// ABOUT ME</p>
+        <Reveal>
+          <p className="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">{"// ABOUT ME"}</p>
           <h2 className="section-title gradient-text">
             About Me
           </h2>
           <p className="section-subtitle">
-            A dedicated Computer Science student building clean, functional websites and web applications.
+            A dedicated Computer Science student building clean, functional websites and software applications.
           </p>
-        </SectionReveal>
+        </Reveal>
 
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           {/* Left — Code Card */}
-          <SectionReveal className="lg:col-span-2" direction="left">
+          <Reveal className="lg:col-span-2" direction="left">
             <div className="relative">
               <div
-                className="absolute -inset-4 rounded-3xl blur-2xl opacity-15"
+                className="absolute -inset-4 rounded-3xl blur-2xl opacity-15 pointer-events-none"
                 style={{
                   background: "radial-gradient(circle, var(--color-secondary), transparent 70%)",
                 }}
               />
               <GlowCard glowColor="purple" className="relative">
-                <div className="font-mono text-sm space-y-2">
-                  <div className="text-text-muted mb-3">// student_profile.py</div>
+                <div className="font-mono text-xs sm:text-sm space-y-2 overflow-x-auto pb-2">
+                  <div className="text-text-muted mb-3">{"// student_profile.py"}</div>
                   <div>
                     <span className="syntax-keyword">class</span>{" "}
                     <span className="syntax-class">StudentProfile</span>:
@@ -69,62 +68,62 @@ export default function About() {
                   </div>
                   <div className="pl-8">
                     <span className="syntax-self">self</span>.
-                    <span className="syntax-variable">interests</span> = [
+                    <span className="syntax-variable">focus</span> = [
                   </div>
                   <div className="pl-12">
-                    <span className="syntax-string">&quot;Web Development&quot;</span>,
+                    <span className="syntax-string">&quot;Web Dev (HTML, CSS, JS)&quot;</span>,
                   </div>
                   <div className="pl-12">
-                    <span className="syntax-string">&quot;Django / Python / React&quot;</span>,
+                    <span className="syntax-string">&quot;Python / Node.js&quot;</span>,
                   </div>
                   <div className="pl-12">
-                    <span className="syntax-string">&quot;Freelance Website Development&quot;</span>
+                    <span className="syntax-string">&quot;C &amp; Java Core Concepts&quot;</span>
                   </div>
                   <div className="pl-8">]</div>
                 </div>
               </GlowCard>
             </div>
-          </SectionReveal>
+          </Reveal>
 
           {/* Right — Bio Paragraphs */}
           <div className="lg:col-span-3 space-y-6">
-            <SectionReveal delay={0.1}>
+            <Reveal delay={0.1}>
               <p className="text-text-secondary leading-relaxed text-base sm:text-lg">
                 I am a <span className="text-primary font-semibold">B.Sc Computer Science student</span> at{" "}
                 <span className="text-text-primary font-medium">Nandha Arts and Science College</span> (Graduation: <span className="text-accent font-semibold">2027</span>).
-                I have a strong interest in modern web development and practical software engineering.
+                I am passionate about learning software development and building practical, user-friendly websites.
               </p>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.2}>
+            <Reveal delay={0.2}>
               <p className="text-text-secondary leading-relaxed text-base sm:text-lg">
-                My primary technical focus is on <span className="text-primary font-medium">Django, Python, and React.js</span>. I enjoy turning concepts into working applications with clean code, intuitive UI designs, and reliable backend functionality.
+                My primary technical skill set includes <span className="text-primary font-medium">HTML, CSS, JavaScript, Node.js, and Python</span>, along with fundamental programming in <span className="text-accent font-medium">C and Java</span>. I focus on writing clear, structured code and creating responsive web interfaces.
               </p>
-            </SectionReveal>
+            </Reveal>
 
-            <SectionReveal delay={0.3}>
+            <Reveal delay={0.3}>
               <p className="text-text-secondary leading-relaxed text-base sm:text-lg">
-                Alongside my academic studies, I am actively interested in <span className="text-secondary font-semibold">freelance website development</span> — helping local businesses, restaurants, and startups establish a professional, mobile-friendly online presence.
+                Alongside my academic coursework, I am interested in <span className="text-secondary font-semibold">freelance website design</span> — helping local businesses and food establishments create fast, mobile-friendly online presences.
               </p>
-            </SectionReveal>
+            </Reveal>
 
-            {/* Quick Stats */}
-            <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+            {/* Quick Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
               {ABOUT_STATS.map((stat, index) => {
-                const Icon = statIcons[index];
+                const Icon = statIcons[index % statIcons.length];
                 return (
                   <motion.div
                     key={stat.label}
-                    variants={staggerChild}
-                    className="glass rounded-xl p-4 text-center hover-glow transition-all duration-300 cursor-default"
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    className="glass rounded-xl p-4 text-center hover-glow transition-all duration-200 cursor-default"
                   >
                     <Icon className="mx-auto mb-2 text-primary" size={20} />
-                    <div className="text-xl font-bold gradient-text">{stat.value}</div>
+                    <div className="text-base sm:text-lg font-bold gradient-text">{stat.value}</div>
                     <div className="text-text-muted text-xs mt-1 font-mono">{stat.label}</div>
                   </motion.div>
                 );
               })}
-            </StaggerContainer>
+            </div>
           </div>
         </div>
       </div>

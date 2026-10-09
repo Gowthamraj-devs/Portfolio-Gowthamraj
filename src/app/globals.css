@@ -81,7 +81,7 @@
 }
 
 /* ============================================================
-   BASE STYLES
+   BASE STYLES & ACCESSIBILITY FOCUS
    ============================================================ */
 * {
   margin: 0;
@@ -101,6 +101,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ============================================================
@@ -394,5 +401,21 @@ body {
 @media (min-width: 768px) {
   .hide-mobile {
     display: block;
+  }
+}
+
+/* ============================================================
+   PREFERS REDUCED MOTION ACCESSIBILITY OVERRIDES
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-snippet {
+    display: none !important;
   }
 }

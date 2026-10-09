@@ -12,17 +12,19 @@ interface TypeWriterProps {
 
 export default function TypeWriter({
   words,
-  typingSpeed = 80,
-  deletingSpeed = 40,
+  typingSpeed = 40,
+  deletingSpeed = 30,
   pauseDuration = 2000,
   className = "",
 }: TypeWriterProps) {
-  const [text, setText] = useState("");
+  // Initialize with first word so initial SSR HTML is SEO-friendly and non-empty
+  const [text, setText] = useState(words[0] || "Full Stack Developer");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
 
   const tick = useCallback(() => {
+    if (!words || words.length === 0) return;
     const currentWord = words[wordIndex];
 
     if (isDeleting) {
@@ -56,10 +58,10 @@ export default function TypeWriter({
   }, []);
 
   return (
-    <span className={className}>
-      {text}
+    <span className={`inline-flex items-center ${className}`}>
+      <span>{text}</span>
       <span
-        className="inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle"
+        className="inline-block w-[2px] h-[1.1em] bg-primary ml-1 align-middle rounded-full"
         style={{ opacity: showCursor ? 1 : 0 }}
       />
     </span>

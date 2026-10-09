@@ -1,7 +1,7 @@
 "use client";
 
 import { Briefcase, MapPin, Calendar } from "lucide-react";
-import SectionReveal from "@/components/SectionReveal";
+import Reveal from "@/components/Reveal";
 import GlowCard from "@/components/GlowCard";
 import { EXPERIENCES } from "@/lib/constants";
 
@@ -9,23 +9,23 @@ export default function Experience() {
   return (
     <section id="experience" className="relative">
       <div className="section-container">
-        <SectionReveal>
-          <p className="text-primary font-mono text-sm mb-2 tracking-wider">// EXPERIENCE</p>
+        <Reveal>
+          <p className="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">{"// EXPERIENCE"}</p>
           <h2 className="section-title gradient-text">
-            Work Experience
+            Internship Experience
           </h2>
           <p className="section-subtitle">
-            Professional experience and industry exposure.
+            Industry internship exposure and practical web development experience.
           </p>
-        </SectionReveal>
+        </Reveal>
 
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline line */}
           <div className="timeline-line" />
 
           {EXPERIENCES.map((exp, index) => (
-            <SectionReveal key={index} delay={index * 0.2}>
-              <div className="relative pl-12 md:pl-0 mb-12 last:mb-0">
+            <Reveal key={index} delay={index * 0.15}>
+              <div className="relative pl-10 md:pl-0 mb-10 last:mb-0">
                 {/* Timeline dot */}
                 <div className="timeline-dot" />
 
@@ -33,7 +33,7 @@ export default function Experience() {
                 <div className="md:ml-[calc(50%+2rem)]">
                   <GlowCard glowColor="cyan">
                     {/* Role & Company */}
-                    <div className="flex items-start gap-3 mb-4">
+                    <div className="flex items-start gap-3 mb-3">
                       <div
                         className="p-2.5 rounded-xl shrink-0"
                         style={{
@@ -65,21 +65,21 @@ export default function Experience() {
                     </div>
 
                     {/* Points */}
-                    <ul className="space-y-2.5">
+                    <ul className="space-y-2">
                       {exp.points.map((point, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2 text-text-secondary text-sm leading-relaxed"
+                          className="flex items-start gap-2 text-text-secondary text-xs sm:text-sm leading-relaxed"
                         >
                           <span className="text-accent mt-1 shrink-0">▹</span>
-                          {point}
+                          <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                   </GlowCard>
                 </div>
               </div>
-            </SectionReveal>
+            </Reveal>
           ))}
         </div>
       </div>

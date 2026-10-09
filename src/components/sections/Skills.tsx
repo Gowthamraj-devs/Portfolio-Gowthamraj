@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code2, Layers, Database, Wrench } from "lucide-react";
-import SectionReveal from "@/components/SectionReveal";
+import Reveal from "@/components/Reveal";
 import { SKILLS, SKILL_CATEGORIES } from "@/lib/constants";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -16,15 +16,15 @@ export default function Skills() {
   return (
     <section id="skills" className="relative">
       <div className="section-container">
-        <SectionReveal>
-          <p className="text-primary font-mono text-sm mb-2 tracking-wider">// MY SKILLS</p>
+        <Reveal>
+          <p className="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">{"// MY SKILLS"}</p>
           <h2 className="section-title gradient-text">
-            Skills & Technologies
+            Skills &amp; Technologies
           </h2>
           <p className="section-subtitle">
             Core technologies and tools I utilize for web development and software projects.
           </p>
-        </SectionReveal>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8">
           {SKILL_CATEGORIES.map((category, catIndex) => {
@@ -32,8 +32,8 @@ export default function Skills() {
             const categorySkills = SKILLS.filter((s) => s.category === category.key);
 
             return (
-              <SectionReveal key={category.key} delay={catIndex * 0.1}>
-                <div className="glass rounded-2xl p-6 hover-glow transition-all duration-300 neon-border h-full flex flex-col justify-between">
+              <Reveal key={category.key} delay={catIndex * 0.1}>
+                <div className="glass rounded-2xl p-6 hover-glow transition-all duration-200 neon-border h-full flex flex-col justify-between">
                   <div>
                     {/* Category header */}
                     <div className="flex items-center gap-3 mb-6">
@@ -58,11 +58,11 @@ export default function Skills() {
                       {categorySkills.map((skill, skillIndex) => (
                         <motion.div
                           key={skill.name}
-                          initial={{ opacity: 0, scale: 0.9 }}
+                          initial={{ opacity: 0, scale: 0.95 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                          transition={{ duration: 0.25, delay: skillIndex * 0.04 }}
                           whileHover={{ scale: 1.05, y: -2 }}
-                          className="px-4 py-2.5 rounded-xl glass border border-primary/20 hover:border-primary/50 text-text-primary font-medium text-sm flex items-center gap-2 shadow-sm transition-all duration-200"
+                          className="px-4 py-2.5 rounded-xl glass border border-primary/20 hover:border-primary/50 text-text-primary font-medium text-sm flex items-center gap-2 shadow-sm transition-colors duration-200 cursor-default"
                         >
                           <span className="w-2 h-2 rounded-full bg-primary" />
                           {skill.name}
@@ -71,7 +71,7 @@ export default function Skills() {
                     </div>
                   </div>
                 </div>
-              </SectionReveal>
+              </Reveal>
             );
           })}
         </div>

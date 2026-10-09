@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Metadata -->
+  <title>Gowthamraj G | Web Developer & B.Sc Computer Science Student</title>
+  <meta name="description" content="Portfolio of Gowthamraj G — Web Developer & B.Sc Computer Science Student skilled in HTML, CSS, JavaScript, Node.js, Python, C, Java, and SQL." />
+  <meta name="keywords" content="Gowthamraj G, Gowthamraj, Web Developer, Software Developer, Python Developer, JavaScript Developer, Node.js, C Developer, Java Developer, SQL, Nandha Arts and Science College, Erode Web Developer" />
+  <meta name="author" content="Gowthamraj G" />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Gowthamraj G | Web Developer & B.Sc Computer Science Student" />
+  <meta property="og:description" content="Gowthamraj G builds responsive websites and software applications with HTML, CSS, JavaScript, Node.js, Python, C, Java, and SQL." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gowthamraj-devs.github.io/Portfolio-Gowthamraj/" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="src/app/favicon.ico" />
+
+  <!-- Tailwind CSS CDN for Utility Classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#050816',
+            'bg-card': 'rgba(15, 23, 42, 0.6)',
+            'primary': '#3B82F6',
+            'secondary': '#8B5CF6',
+            'accent': '#06B6D4',
+            'text-primary': '#ffffff',
+            'text-secondary': '#94a3b8',
+            'text-muted': '#64748b',
+            'border-subtle': 'rgba(148, 163, 184, 0.12)'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS3 Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-[#050816] text-white font-sans antialiased relative">
+
+  <!-- 1. TERMINAL BOOT OVERLAY SCREEN -->
+  <div id="loading-screen" class="loading-screen" aria-label="Terminal Boot Screen (Click to skip)">
+    <div class="w-full max-w-lg px-6">
+      <div class="glass rounded-t-xl px-4 py-2.5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="ml-2 text-xs text-text-muted font-mono">terminal — portfolio</span>
+        </div>
+        <span class="text-[10px] text-text-muted font-mono opacity-70">[Click to skip]</span>
+      </div>
+      <div class="glass-strong rounded-b-xl p-5 font-mono text-xs sm:text-sm min-h-[200px] flex flex-col justify-between">
+        <div class="space-y-2">
+          <div class="boot-line transition-all duration-300 opacity-0 -translate-x-2 text-text-secondary">&gt; Initializing system...</div>
+          <div class="boot-line transition-all duration-300 opacity-0 -translate-x-2 text-text-secondary">&gt; Loading modules... ██████████ 100%</div>
+          <div class="boot-line transition-all duration-300 opacity-0 -translate-x-2 text-text-secondary">&gt; Compiling components...</div>
+          <div class="boot-line transition-all duration-300 opacity-0 -translate-x-2 text-accent font-semibold">&gt; Welcome, Gowthamraj G</div>
+          <div class="boot-line transition-all duration-300 opacity-0 -translate-x-2 text-green-400 font-medium">&gt; Portfolio loaded successfully.</div>
+        </div>
+        <div class="flex items-center justify-between pt-4 mt-2 border-t border-border-subtle">
+          <span class="inline-block w-2.5 h-4 bg-primary animate-pulse"></span>
+          <span class="text-[11px] text-text-muted font-mono">Press any key to enter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. DYNAMIC BACKGROUND ANIMATIONS -->
+  <canvas id="matrix-canvas" class="fixed inset-0 pointer-events-none opacity-40 z-0"></canvas>
+  <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <div id="floating-snippets-container" class="fixed inset-0 pointer-events-none z-0"></div>
+  <div id="mouse-glow-element" class="fixed top-0 left-0 pointer-events-none rounded-full w-[500px] h-[500px] z-0" style="background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, rgba(139,92,246,0.03) 40%, transparent 70%);"></div>
+
+  <!-- 3. NAVIGATION BAR -->
+  <nav id="navbar" class="navbar">
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-18">
+        <!-- Logo -->
+        <a href="#home" class="text-xl md:text-2xl font-bold font-mono gradient-text flex items-center gap-1 hover:opacity-80 transition-opacity">
+          <span>&lt;/&gt;</span>
+          <span class="text-xs font-sans font-medium text-text-muted hidden sm:inline ml-1">Gowthamraj G</span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="#home" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Home</a>
+          <a href="#about" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">About</a>
+          <a href="#skills" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Skills</a>
+          <a href="#projects" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Projects</a>
+          <a href="#services" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Services</a>
+          <a href="#experience" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Experience</a>
+          <a href="#education" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Education</a>
+          <a href="#certificates" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Certificates</a>
+          <a href="#contact" class="nav-link relative px-3 py-2 text-xs xl:text-sm font-medium rounded-lg text-text-secondary hover:text-text-primary transition-colors">Contact</a>
+        </div>
+
+        <!-- Resume Button (Desktop) -->
+        <div class="hidden lg:block">
+          <a href="resume.pdf" download="Gowthamraj_G_Resume.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium text-white transition-transform hover:scale-105" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Resume
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-text-secondary hover:text-text-primary transition-colors cursor-pointer" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay lg:hidden">
+    <div class="mobile-menu-drawer">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center justify-between pb-4 border-b border-border-subtle mb-2">
+          <span class="font-mono text-sm font-bold text-primary">&lt;/&gt; Menu</span>
+          <button id="mobile-menu-close" class="p-1 text-text-muted hover:text-white"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        </div>
+        <a href="#home" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Home</a>
+        <a href="#about" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">About</a>
+        <a href="#skills" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Skills</a>
+        <a href="#projects" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Projects</a>
+        <a href="#services" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Services</a>
+        <a href="#experience" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Experience</a>
+        <a href="#education" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Education</a>
+        <a href="#certificates" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Certificates</a>
+        <a href="#contact" class="mobile-nav-link px-4 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-white/5">Contact</a>
+      </div>
+      <div class="pt-6 border-t border-border-subtle mt-4">
+        <a href="resume.pdf" download="Gowthamraj_G_Resume.pdf" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-white" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); boxShadow: 0 0 15px rgba(59, 130, 246, 0.3);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MAIN CONTENT SECTIONS -->
+  <main class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 pb-12 lg:py-0">
+      <div class="section-container w-full">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left Info -->
+          <div class="order-2 lg:order-1">
+            <div class="reveal">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="h-[1px] w-8 bg-primary"></div>
+                <span class="text-primary text-xs sm:text-sm font-mono tracking-wider uppercase font-medium">Welcome to my portfolio</span>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-2 tracking-tight">
+                <span class="gradient-text">Gowthamraj G</span>
+              </h1>
+              <h2 class="text-xl sm:text-2xl font-semibold text-text-primary mb-3">
+                Web Developer &amp; B.Sc Computer Science Student
+              </h2>
+            </div>
+
+            <div class="reveal">
+              <div class="text-base sm:text-lg font-medium text-accent mb-5 min-h-[32px] flex items-center">
+                <span class="mr-2 text-text-muted font-mono text-sm">Focus:</span>
+                <span id="typewriter-text" class="inline-flex items-center font-medium text-accent">Web Developer</span>
+                <span class="inline-block w-[2px] h-[1.1em] bg-primary ml-1 align-middle rounded-full animate-pulse"></span>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <p class="text-text-secondary leading-relaxed mb-8 max-w-xl text-base sm:text-lg">
+                I build clean, responsive websites and software applications using HTML, CSS, JavaScript, Node.js, Python, C, and Java.
+              </p>
+            </div>
+
+            <div class="reveal">
+              <div class="flex flex-wrap items-center gap-4 mb-8">
+                <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white font-medium text-sm transition-transform hover:scale-105 cursor-pointer" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); box-shadow: 0 0 20px rgba(59, 130, 246, 0.35);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                  View My Projects
+                </a>
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-transform hover:scale-105 border border-primary/40 text-primary hover:bg-primary/10 cursor-pointer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                  Contact Me
+                </a>
+                <a href="resume.pdf" download="Gowthamraj_G_Resume.pdf" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-sm transition-transform hover:scale-105 border border-border-subtle text-text-secondary hover:text-text-primary hover:border-border-glow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Download Resume
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <div class="flex items-center gap-4">
+                <span class="text-text-muted text-xs font-mono uppercase tracking-wider">connect:</span>
+                <a href="https://github.com/Gowthamraj-devs" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-transform hover:scale-110">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/gowthamraj-g-aa9166344" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-transform hover:scale-110">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="mailto:gowthamrajg2006@gmail.com" aria-label="Direct Email" class="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-transform hover:scale-110">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </a>
+                <a href="https://wa.me/918825728535" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Direct Chat" class="p-2.5 rounded-xl glass text-text-secondary hover:text-primary transition-transform hover:scale-110">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Code Editor Component -->
+          <div class="reveal reveal-right order-1 lg:order-2">
+            <div class="relative">
+              <div class="absolute -inset-6 rounded-3xl blur-3xl opacity-20 pointer-events-none" style="background: radial-gradient(circle at 50% 50%, var(--color-primary), var(--color-secondary), transparent 70%);"></div>
+              
+              <!-- VS Code Editor Markup -->
+              <div class="rounded-xl overflow-hidden shadow-2xl relative" style="box-shadow: 0 0 40px rgba(59, 130, 246, 0.1), 0 25px 50px rgba(0, 0, 0, 0.5)">
+                <!-- Title bar -->
+                <div class="flex items-center justify-between px-4 py-2.5 bg-[#1e1e1e] border-b border-[#333]">
+                  <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+                  </div>
+                  <span class="text-xs text-[#808080] font-mono">developer.py — Portfolio</span>
+                  <div class="w-16"></div>
+                </div>
+                <!-- Tab bar -->
+                <div class="flex bg-[#252526] border-b border-[#333]">
+                  <div class="flex items-center gap-2 px-4 py-1.5 bg-[#1e1e1e] border-r border-[#333] border-t-2 border-t-primary text-sm">
+                    <span class="text-[#3572A5] font-mono text-xs">🐍</span>
+                    <span class="text-[#cccccc] font-mono text-xs">developer.py</span>
+                  </div>
+                </div>
+                <!-- Code Area -->
+                <div class="bg-[#1e1e1e] p-4 overflow-hidden" style="min-height: 400px; max-height: 480px;">
+                  <div class="flex font-mono text-sm leading-6">
+                    <div id="vscode-line-numbers" class="pr-4 select-none text-right" style="min-width: 36px;"></div>
+                    <div id="vscode-code-content" class="flex-1 overflow-x-auto"></div>
+                  </div>
+                </div>
+                <!-- Status bar -->
+                <div class="flex items-center justify-between px-4 py-1 bg-[#007acc] text-white text-xs font-mono">
+                  <div class="flex items-center gap-3">
+                    <span>🐍 Python 3.12</span>
+                    <span>UTF-8</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span>Python</span>
+                    <span>Spaces: 4</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="relative">
+      <div className="section-container">
+        <!-- Rendered dynamically by js/main.js & js/reveal.js -->
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// ABOUT ME</p>
+          <h2 class="section-title gradient-text">About Me</h2>
+          <p class="section-subtitle">A dedicated Computer Science student building clean, functional websites and software applications.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+          <div class="reveal reveal-left lg:col-span-2">
+            <div class="relative">
+              <div class="glow-card glass relative" data-glow="purple">
+                <div class="font-mono text-xs sm:text-sm space-y-2 overflow-x-auto pb-2">
+                  <div class="text-text-muted mb-3">// student_profile.py</div>
+                  <div><span class="syntax-keyword">class</span> <span class="syntax-class">StudentProfile</span>:</div>
+                  <div class="pl-4"><span class="syntax-keyword">def</span> <span class="syntax-function">__init__</span><span class="syntax-paren">(</span><span class="syntax-self">self</span><span class="syntax-paren">)</span>:</div>
+                  <div class="pl-8"><span class="syntax-self">self</span>.<span class="syntax-variable">name</span> = <span class="syntax-string">&quot;Gowthamraj G&quot;</span></div>
+                  <div class="pl-8"><span class="syntax-self">self</span>.<span class="syntax-variable">degree</span> = <span class="syntax-string">&quot;B.Sc Computer Science&quot;</span></div>
+                  <div class="pl-8"><span class="syntax-self">self</span>.<span class="syntax-variable">college</span> = <span class="syntax-string">&quot;Nandha Arts &amp; Science College (Autonomous)&quot;</span></div>
+                  <div class="pl-8"><span class="syntax-self">self</span>.<span class="syntax-variable">graduation</span> = <span class="syntax-string">&quot;2027&quot;</span></div>
+                  <div class="pl-8"><span class="syntax-self">self</span>.<span class="syntax-variable">focus</span> = [</div>
+                  <div class="pl-12"><span class="syntax-string">&quot;Web Dev (HTML, CSS, JS)&quot;</span>,</div>
+                  <div class="pl-12"><span class="syntax-string">&quot;Python / Node.js&quot;</span>,</div>
+                  <div class="pl-12"><span class="syntax-string">&quot;C &amp; Java Core Concepts&quot;</span></div>
+                  <div class="pl-8">]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3 space-y-6">
+            <div class="reveal">
+              <p class="text-text-secondary leading-relaxed text-base sm:text-lg">
+                I am a <span class="text-primary font-semibold">B.Sc Computer Science student</span> at <span class="text-text-primary font-medium">Nandha Arts and Science College (Autonomous)</span> (Graduation: <span class="text-accent font-semibold">2027</span>). I am passionate about learning software development and building practical, user-friendly websites.
+              </p>
+            </div>
+            <div class="reveal">
+              <p class="text-text-secondary leading-relaxed text-base sm:text-lg">
+                My primary technical skill set includes <span class="text-primary font-medium">HTML, CSS, JavaScript, Node.js, and Python</span>, along with fundamental programming in <span class="text-accent font-medium">C and Java</span>. I focus on writing clear, structured code and creating responsive web interfaces.
+              </p>
+            </div>
+            <div class="reveal">
+              <p class="text-text-secondary leading-relaxed text-base sm:text-lg">
+                Alongside my academic coursework, I am interested in <span class="text-secondary font-semibold">freelance website design</span> — helping local businesses and food establishments create fast, mobile-friendly online presences.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+              <div class="glass rounded-xl p-4 text-center cursor-default">
+                <div class="text-base sm:text-lg font-bold gradient-text">2027</div>
+                <div class="text-text-muted text-xs mt-1 font-mono">Graduation</div>
+              </div>
+              <div class="glass rounded-xl p-4 text-center cursor-default">
+                <div class="text-base sm:text-lg font-bold gradient-text">B.Sc CS</div>
+                <div class="text-text-muted text-xs mt-1 font-mono">Degree</div>
+              </div>
+              <div class="glass rounded-xl p-4 text-center cursor-default">
+                <div class="text-base sm:text-lg font-bold gradient-text">NASC</div>
+                <div class="text-text-muted text-xs mt-1 font-mono">College</div>
+              </div>
+              <div class="glass rounded-xl p-4 text-center cursor-default">
+                <div class="text-base sm:text-lg font-bold gradient-text">Web &amp; Software</div>
+                <div class="text-text-muted text-xs mt-1 font-mono">Focus</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// MY SKILLS</p>
+          <h2 class="section-title gradient-text">Skills &amp; Technologies</h2>
+          <p class="section-subtitle">Core technologies and tools I utilize for web development and software projects.</p>
+        </div>
+        <div id="skills-container" class="grid md:grid-cols-2 gap-8"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// MY WORK</p>
+          <h2 class="section-title gradient-text">Featured Projects</h2>
+          <p class="section-subtitle">Real-world applications and responsive website solutions I&apos;ve designed and developed.</p>
+        </div>
+        <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// FREELANCE SERVICES</p>
+          <h2 class="section-title gradient-text">Website Development Services</h2>
+          <p class="section-subtitle">Modern, fast, and responsive web solutions designed for local businesses, restaurants, and startups.</p>
+        </div>
+        <div id="services-container" class="grid md:grid-cols-2 gap-8 items-stretch"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// EXPERIENCE</p>
+          <h2 class="section-title gradient-text">Internship Experience</h2>
+          <p class="section-subtitle">Industry internship exposure and practical web development experience.</p>
+        </div>
+        <div id="experience-container" class="relative max-w-3xl mx-auto">
+          <div class="timeline-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// EDUCATION</p>
+          <h2 class="section-title gradient-text">Academic Background</h2>
+          <p class="section-subtitle">My computer science education and academic progress.</p>
+        </div>
+        <div id="education-container" class="relative max-w-3xl mx-auto">
+          <div class="timeline-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certificates" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// CERTIFICATES</p>
+          <h2 class="section-title gradient-text">Certifications</h2>
+          <p class="section-subtitle">Verified technical certifications and internship credentials.</p>
+        </div>
+        <div id="certificates-container" class="max-w-2xl mx-auto space-y-6"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="relative">
+      <div class="section-container">
+        <div class="reveal">
+          <p class="text-primary font-mono text-xs sm:text-sm mb-2 tracking-wider uppercase">// GET IN TOUCH</p>
+          <h2 class="section-title gradient-text">Contact Me</h2>
+          <p class="section-subtitle">Have a project in mind, need a website for your business, or want to connect? Send a message!</p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto items-start">
+          <div class="reveal reveal-left lg:col-span-2 space-y-4">
+            <h3 class="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Direct Contact Information
+            </h3>
+
+            <a href="mailto:gowthamrajg2006@gmail.com" class="glass rounded-xl p-4 flex items-center gap-4 hover-glow transition-all block border border-border-subtle hover:border-primary/40">
+              <div class="p-3 rounded-xl shrink-0 bg-primary/10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              </div>
+              <div class="overflow-hidden">
+                <p class="text-xs text-text-muted font-mono">Email</p>
+                <p class="text-sm font-medium text-text-primary truncate">gowthamrajg2006@gmail.com</p>
+              </div>
+            </a>
+
+            <a href="https://wa.me/918825728535" target="_blank" rel="noopener noreferrer" class="glass rounded-xl p-4 flex items-center gap-4 hover-glow transition-all block border border-border-subtle hover:border-primary/40">
+              <div class="p-3 rounded-xl shrink-0 bg-green-500/10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-[#25D366]"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              </div>
+              <div class="overflow-hidden">
+                <p class="text-xs text-text-muted font-mono">WhatsApp Direct</p>
+                <p class="text-sm font-medium text-text-primary truncate">+91 8825728535</p>
+              </div>
+            </a>
+
+            <div class="glass rounded-xl p-4 flex items-center gap-4 border border-border-subtle">
+              <div class="p-3 rounded-xl shrink-0 bg-primary/10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="text-xs text-text-muted font-mono">Location</p>
+                <p class="text-sm font-medium text-text-primary">Erode, Tamil Nadu, India</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="reveal reveal-right lg:col-span-3">
+            <div class="glow-card glass relative" data-glow="blue">
+              <h3 class="text-xl font-bold text-text-primary mb-6">Send a Message</h3>
+
+              <div id="contact-status" style="display: none;"></div>
+
+              <form id="contact-form" class="space-y-4">
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-mono text-text-secondary mb-1.5">Your Name <span class="text-red-400">*</span></label>
+                    <input type="text" id="contact-name" placeholder="e.g. Rahul Sharma" required class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-mono text-text-secondary mb-1.5">Your Email <span class="text-red-400">*</span></label>
+                    <input type="email" id="contact-email" placeholder="e.g. rahul@example.com" required class="form-input" />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-text-secondary mb-1.5">Subject</label>
+                  <input type="text" id="contact-subject" placeholder="e.g. Website Development Inquiry" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-text-secondary mb-1.5">Message <span class="text-red-400">*</span></label>
+                  <textarea id="contact-message" rows="4" placeholder="Describe your project, website requirements, or question..." required class="form-input resize-none"></textarea>
+                </div>
+                <button type="submit" id="contact-submit-btn" class="w-full py-3.5 px-6 rounded-xl font-medium text-sm text-white flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] cursor-pointer" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); boxShadow: 0 0 20px rgba(59, 130, 246, 0.3)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Send Message
+                </button>
+              </form>
+
+              <div class="mt-6 pt-5 border-t border-border-subtle text-center">
+                <p class="text-xs text-text-muted font-mono mb-3">Or connect instantly via:</p>
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                  <a href="https://wa.me/918825728535" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 text-xs font-medium hover:bg-[#25D366]/25 transition-colors">
+                    WhatsApp Direct Chat
+                  </a>
+                  <a href="mailto:gowthamrajg2006@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/15 text-primary border border-primary/30 text-xs font-medium hover:bg-primary/25 transition-colors">
+                    Send Direct Email
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t border-border-subtle bg-background/50 py-10 z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <h3 class="text-lg font-bold text-text-primary">Gowthamraj G</h3>
+          <p class="text-xs text-text-muted font-mono">Web Developer | B.Sc Computer Science</p>
+          <p class="text-xs text-text-muted mt-1">© 2026 Gowthamraj G. All rights reserved.</p>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-text-secondary">
+          <span>Email:</span>
+          <a href="mailto:gowthamrajg2006@gmail.com" class="text-primary hover:underline font-mono text-xs">gowthamrajg2006@gmail.com</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Gowthamraj-devs" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="p-2.5 rounded-lg glass text-text-muted hover:text-primary transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/gowthamraj-g-aa9166344" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2.5 rounded-lg glass text-text-muted hover:text-primary transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/backgrounds/matrix.js"></script>
+  <script src="js/backgrounds/particles.js"></script>
+  <script src="js/backgrounds/floating.js"></script>
+  <script src="js/backgrounds/mouse-glow.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
